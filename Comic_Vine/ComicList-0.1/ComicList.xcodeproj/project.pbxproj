@@ -60,6 +60,9 @@
 		82E2E1191E48C44C00D5986C /* ImageLoader.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 82E2E1111E48C44C00D5986C /* ImageLoader.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		82E2E11E1E48C7DF00D5986C /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E2E11D1E48C7DF00D5986C /* Resource.swift */; };
 		D98F7E454CB7E7215C64BAEB /* Pods_App_Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BED0CCE39C67087D954C79F7 /* Pods_App_Networking.framework */; };
+		DF191AD21E745BC4008964B1 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF191AD11E745BC4008964B1 /* Response.swift */; };
+		DF191AD41E745E9F008964B1 /* Volume.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF191AD31E745E9F008964B1 /* Volume.swift */; };
+		DF191AD61E745FD8008964B1 /* JSONDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF191AD51E745FD8008964B1 /* JSONDecodable.swift */; };
 		F4D6080E32D5C5C9CCD77C43 /* Pods_App_ComicList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D2B7D35B7CA654C048282A1 /* Pods_App_ComicList.framework */; };
 /* End PBXBuildFile section */
 
@@ -155,6 +158,9 @@
 		83D2A4F91B4F32A42CC4EF03 /* Pods-App-ImageLoader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App-ImageLoader.debug.xcconfig"; path = "Pods/Target Support Files/Pods-App-ImageLoader/Pods-App-ImageLoader.debug.xcconfig"; sourceTree = "<group>"; };
 		BED0CCE39C67087D954C79F7 /* Pods_App_Networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_App_Networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBD73B7BC71B78B65F21B488 /* Pods-App-Networking.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App-Networking.release.xcconfig"; path = "Pods/Target Support Files/Pods-App-Networking/Pods-App-Networking.release.xcconfig"; sourceTree = "<group>"; };
+		DF191AD11E745BC4008964B1 /* Response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
+		DF191AD31E745E9F008964B1 /* Volume.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Volume.swift; sourceTree = "<group>"; };
+		DF191AD51E745FD8008964B1 /* JSONDecodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONDecodable.swift; sourceTree = "<group>"; };
 		E2E713E8FD5FDF32B7C90338 /* Pods-App-ComicList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App-ComicList.release.xcconfig"; path = "Pods/Target Support Files/Pods-App-ComicList/Pods-App-ComicList.release.xcconfig"; sourceTree = "<group>"; };
 		F4C3A1E64694DFFDCFC1E5C8 /* Pods-App-ComicList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App-ComicList.debug.xcconfig"; path = "Pods/Target Support Files/Pods-App-ComicList/Pods-App-ComicList.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -228,6 +234,7 @@
 				82E2E11D1E48C7DF00D5986C /* Resource.swift */,
 				DF191ACE1E7457EB008964B1 /* New Group */,
 				823B965C1E48D51000C19057 /* WebClient.swift */,
+				DF191AD51E745FD8008964B1 /* JSONDecodable.swift */,
 			);
 			name = Core;
 			sourceTree = "<group>";
@@ -439,6 +446,7 @@
 		82E2E0E61E48C20800D5986C /* ComicList */ = {
 			isa = PBXGroup;
 			children = (
+				DF191ACF1E745B82008964B1 /* ComicVine */,
 				827872ED1E4B859000E80204 /* Search */,
 				82A65E931E4A2E52008C4332 /* Volume Detail */,
 				82A65E7B1E4A20B0008C4332 /* Volume List */,
@@ -471,6 +479,23 @@
 			children = (
 			);
 			name = "New Group";
+			sourceTree = "<group>";
+		};
+		DF191ACF1E745B82008964B1 /* ComicVine */ = {
+			isa = PBXGroup;
+			children = (
+				DF191AD01E745BA6008964B1 /* Models */,
+			);
+			name = ComicVine;
+			sourceTree = "<group>";
+		};
+		DF191AD01E745BA6008964B1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				DF191AD11E745BC4008964B1 /* Response.swift */,
+				DF191AD31E745E9F008964B1 /* Volume.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -774,6 +799,7 @@
 				82A7505C1E4C8CD800B13C0B /* SearchResultCell.swift in Sources */,
 				82A750611E4C8EA400B13C0B /* SearchResultsCoordinator.swift in Sources */,
 				82A65E831E4A2313008C4332 /* AppCoordinator.swift in Sources */,
+				DF191AD21E745BC4008964B1 /* Response.swift in Sources */,
 				82A65E8A1E4A2609008C4332 /* VolumeCell.swift in Sources */,
 				82A65E981E4A2E94008C4332 /* IssueViewModel.swift in Sources */,
 				823B96801E48E4C000C19057 /* Asset.swift in Sources */,
@@ -781,6 +807,7 @@
 				823B96781E48E02400C19057 /* CoverView.swift in Sources */,
 				82A7505F1E4C8DE000B13C0B /* SearchResultsViewController.swift in Sources */,
 				823B96811E48E4C000C19057 /* Color.swift in Sources */,
+				DF191AD41E745E9F008964B1 /* Volume.swift in Sources */,
 				82A750591E4C8BE500B13C0B /* SearchResultsViewModel.swift in Sources */,
 				82E2E0E81E48C20800D5986C /* AppDelegate.swift in Sources */,
 				82A65E851E4A2449008C4332 /* VolumeViewModel.swift in Sources */,
@@ -806,6 +833,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF191AD61E745FD8008964B1 /* JSONDecodable.swift in Sources */,
 				82E2E11E1E48C7DF00D5986C /* Resource.swift in Sources */,
 				823B965D1E48D51000C19057 /* WebClient.swift in Sources */,
 			);
@@ -948,7 +976,7 @@
 				DEVELOPMENT_TEAM = T5TF72MCE6;
 				INFOPLIST_FILE = ComicList/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.gonzalezreal.ComicList;
+				PRODUCT_BUNDLE_IDENTIFIER = josejacin.ComicList;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -963,7 +991,7 @@
 				DEVELOPMENT_TEAM = T5TF72MCE6;
 				INFOPLIST_FILE = ComicList/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.gonzalezreal.ComicList;
+				PRODUCT_BUNDLE_IDENTIFIER = josejacin.ComicList;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

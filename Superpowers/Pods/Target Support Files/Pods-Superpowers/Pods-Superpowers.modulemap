@@ -1,0 +1,6 @@
+framework module Pods_Superpowers {
+  umbrella header "Pods-Superpowers-umbrella.h"
+
+  export *
+  module * { export * }
+}

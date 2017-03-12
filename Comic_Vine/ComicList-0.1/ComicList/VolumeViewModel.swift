@@ -12,7 +12,7 @@ import Foundation
 struct VolumeViewModel {
 
 	/// Unique identifier
-	let identifier: Int
+	let identifier: Int64
 
 	/// Volume title
 	let title: String

@@ -26,6 +26,19 @@ public protocol JSONDecodable {
     init(jsonDictionary: JSONDictionary) throws
 }
 
+// Protocolo genérico que nos vale para parsear un valor que nos llega del JSON a otro tipo
+public protocol JSONValueDecodable {
+    associatedtype Value
+    init?(jsonValue: Value)
+}
+
+//MARK: - Extensions
+extension URL: JSONValueDecodable {
+    public init?(jsonValue: String) {
+        self.init(string: jsonValue)
+    }
+}
+
 //MARK: - Functions
 // Función genérica decode que recibe un JSONDictionary y retorna un T
 public func decode<T: JSONDecodable>(jsonDictionary: JSONDictionary) throws -> T {
@@ -65,14 +78,29 @@ public func unpack<T>(from jsonDictionary: JSONDictionary, key: String) throws -
     return value
 }
 
+// Función que desempaqueta un campo del Dictionary pero accediendo a este mediente un keyPath
+public func unpack<T: JSONValueDecodable>(from jsonDictionary: JSONDictionary, keyPath: String) throws -> T {
+    guard let rawValue = (jsonDictionary as NSDictionary).value(forKeyPath: keyPath) else {
+        throw JSONError.notFound(keyPath)
+    }
+    
+    // Con esto se está recuperando el valor y además se parsea a otro tipo de valor mediante un protocolo genérico
+    guard let value = rawValue as? T.Value,
+        let decodedValue = T(jsonValue: value )else {
+        throw JSONError.invalidValue(rawValue, keyPath)
+    }
+    
+    return decodedValue
+}
+
 // Función que desempaqueta el valor de una clave que se encuentra en un JSONDuctionary y retorna T
-public func decode<T: JSONDecodable>(from jsonDictionary : JSONDictionary, key: String) throws -> T {
+public func unpackModel<T: JSONDecodable>(from jsonDictionary : JSONDictionary, key: String) throws -> T {
     let rawValue: JSONDictionary = try unpack(from: jsonDictionary, key: key)
     return try decode(jsonDictionary: rawValue)
 }
 
 // Función que desempaqueta el valor de una clave que se encuentra en un JSONDuctionary y retorna un array de T
-public func decode<T: JSONDecodable>(from jsonDictionary : JSONDictionary, key: String) throws -> [T] {
+public func unpackModels<T: JSONDecodable>(from jsonDictionary : JSONDictionary, key: String) throws -> [T] {
     let rawValues: JSONArray = try unpack(from: jsonDictionary, key: key)
     return try decode(jsonArray: rawValues)
 }

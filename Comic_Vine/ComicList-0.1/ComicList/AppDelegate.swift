@@ -8,7 +8,9 @@
 //
 
 import UIKit
-
+import Networking
+import RxSwift
+ 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -16,6 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
+        testResources()
+        
 		let window = UIWindow(frame: UIScreen.main.bounds)
 
 		coordinator = AppCoordinator(window: window)
@@ -24,3 +28,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		return true
 	}
 }
+
+ func testResources() {
+    let client = WebClient()
+    let resource = Volume.titles(with: "Bat")
+    
+    client.load(resource: resource)
+        .map {
+            return $0.results.map { $0.title }
+        }.subscribe(onNext: { titles in
+            print(titles)
+        })
+ }

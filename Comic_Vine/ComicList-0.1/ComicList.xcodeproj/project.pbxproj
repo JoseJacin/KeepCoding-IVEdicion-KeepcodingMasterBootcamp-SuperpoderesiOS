@@ -63,6 +63,7 @@
 		DF191AD21E745BC4008964B1 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF191AD11E745BC4008964B1 /* Response.swift */; };
 		DF191AD41E745E9F008964B1 /* Volume.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF191AD31E745E9F008964B1 /* Volume.swift */; };
 		DF191AD61E745FD8008964B1 /* JSONDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF191AD51E745FD8008964B1 /* JSONDecodable.swift */; };
+		DFD9ECB21E7562410012F0D2 /* Resource+ComicVine.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD9ECB11E7562410012F0D2 /* Resource+ComicVine.swift */; };
 		F4D6080E32D5C5C9CCD77C43 /* Pods_App_ComicList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D2B7D35B7CA654C048282A1 /* Pods_App_ComicList.framework */; };
 /* End PBXBuildFile section */
 
@@ -161,6 +162,7 @@
 		DF191AD11E745BC4008964B1 /* Response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		DF191AD31E745E9F008964B1 /* Volume.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Volume.swift; sourceTree = "<group>"; };
 		DF191AD51E745FD8008964B1 /* JSONDecodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONDecodable.swift; sourceTree = "<group>"; };
+		DFD9ECB11E7562410012F0D2 /* Resource+ComicVine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Resource+ComicVine.swift"; sourceTree = "<group>"; };
 		E2E713E8FD5FDF32B7C90338 /* Pods-App-ComicList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App-ComicList.release.xcconfig"; path = "Pods/Target Support Files/Pods-App-ComicList/Pods-App-ComicList.release.xcconfig"; sourceTree = "<group>"; };
 		F4C3A1E64694DFFDCFC1E5C8 /* Pods-App-ComicList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App-ComicList.debug.xcconfig"; path = "Pods/Target Support Files/Pods-App-ComicList/Pods-App-ComicList.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -485,6 +487,7 @@
 			isa = PBXGroup;
 			children = (
 				DF191AD01E745BA6008964B1 /* Models */,
+				DFD9ECB11E7562410012F0D2 /* Resource+ComicVine.swift */,
 			);
 			name = ComicVine;
 			path = ComicList;
@@ -806,6 +809,7 @@
 				823B96801E48E4C000C19057 /* Asset.swift in Sources */,
 				82A65E811E4A226D008C4332 /* VolumeListCoordinator.swift in Sources */,
 				823B96781E48E02400C19057 /* CoverView.swift in Sources */,
+				DFD9ECB21E7562410012F0D2 /* Resource+ComicVine.swift in Sources */,
 				82A7505F1E4C8DE000B13C0B /* SearchResultsViewController.swift in Sources */,
 				823B96811E48E4C000C19057 /* Color.swift in Sources */,
 				DF191AD41E745E9F008964B1 /* Volume.swift in Sources */,

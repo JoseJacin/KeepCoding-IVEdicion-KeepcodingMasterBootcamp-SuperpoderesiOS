@@ -22,10 +22,10 @@ extension Response: JSONDecodable {
         status = try unpack(from: jsonDictionary, key: "status_code")
         message = try unpack(from: jsonDictionary, key: "error")
         
-        if let value: T = try? decode(from: jsonDictionary, key: "results") {
+        if let value: T = try? unpackModel(from: jsonDictionary, key: "results") {
             results = [value]
         } else {
-            results = try decode(from: jsonDictionary, key: "results")
+            results = try unpackModels(from: jsonDictionary, key: "results")
         }
     }
 }

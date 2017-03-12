@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Networking
 import RxSwift
 
 // FIXME: This is a fake implementation
@@ -21,10 +22,34 @@ final class VolumeDetailViewModel {
 	/// The volume information
 	private(set) var volume: VolumeViewModel
 
+    private let webClient = WebClient()
+    
 	/// The volume description
-	private(set) lazy var about: Observable<String?> = Observable.just(
-		"Quietooor quietooor ese hombree de la pradera. Caballo blanco caballo negroorl ese que llega apetecan ese pedazo de te voy a borrar el cerito a wan. Ahorarr tiene musho peligro a gramenawer te va a hasé pupitaa."
-	)
+	private(set) lazy var about: Observable<String?> = self.webClient
+        .load(resource: Volume.detail(withIdentifier: self.volume.identifier))
+        .map { $0.results[0].description }
+        // Se eliminan las etiquetas de html de la descripción
+        .map { description in
+            return description?.replacingOccurrences(
+                of: "<[^>]+>",
+                with: "",
+                options: .regularExpression,
+                range: nil
+            )
+        }
+        // Catch en caso en que ocurra un error, pero además se pueden realizar cosas con el error
+        //.catchError {
+        //
+        //}
+        // Catch en caso en que ocurra un error
+        .catchErrorJustReturn("Error de la pradera")
+        // Cuando alguien se suscribe, retorna un observable con el valor que le hemos pasado por parámetro
+        // En este caso lo que provoca es que la descripción se oculte mientras se descarga la descripción del volume
+        .startWith(nil)
+        // El observerOn y el sharedReplay se ejecutan si el Observer es del tipo Driver
+        .observeOn(MainScheduler.instance)
+        // Evita que se haga la petición 2 veces. El parámetro es el tamaño del buffer en el que se guardarán tantos elementos como valor tenga dicho parámetro
+        .shareReplay(1)
 
 	/// The issues for this volume
 	private(set) var issues: Observable<[IssueViewModel]> = Observable.just([

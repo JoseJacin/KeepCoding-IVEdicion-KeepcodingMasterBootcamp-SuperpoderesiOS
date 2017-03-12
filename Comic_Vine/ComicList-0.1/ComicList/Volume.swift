@@ -44,6 +44,7 @@ extension Volume: JSONDecodable {
 extension Volume {
     // Función estática que retorna el título para recuperar los títulos
     public static func titles(with query: String) -> Resource<Response<Volume>> {
+        // Se retorna el recurso
         return Resource(
             comicVinePath: "search",
             parameters: [
@@ -60,6 +61,7 @@ extension Volume {
     
     // Función estática que retorna el título para recuperar los títulos pero con paginación además de retornar más campos
     public static func search(with query: String, page: Int) -> Resource<Response<Volume>> {
+        // Se retorna el recurso
         return Resource(
             comicVinePath: "search",
             parameters: [
@@ -70,6 +72,19 @@ extension Volume {
                 "page" : String(page),
                 "query" : query,
                 "resources" : "volume"
+            ]
+        )
+    }
+    
+    // Función estática que retorna el detalle de un volume
+    public static func detail(withIdentifier identifier: Int64) -> Resource<Response<Volume>> {
+        // Se retorna el recurso
+        return Resource(
+            comicVinePath: "volume/4050-\(identifier)",
+            parameters: [
+                "api_key" : apiKey,
+                "format" : "json",
+                "field_list" : "name,description",
             ]
         )
     }

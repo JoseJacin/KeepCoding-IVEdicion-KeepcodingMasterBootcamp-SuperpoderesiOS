@@ -424,6 +424,7 @@
 		82E2E0DB1E48C20800D5986C = {
 			isa = PBXGroup;
 			children = (
+				DF191ACF1E745B82008964B1 /* ComicVine */,
 				82E2E0E61E48C20800D5986C /* ComicList */,
 				82E2E1121E48C44C00D5986C /* ImageLoader */,
 				82E2E1001E48C43400D5986C /* Networking */,
@@ -446,7 +447,6 @@
 		82E2E0E61E48C20800D5986C /* ComicList */ = {
 			isa = PBXGroup;
 			children = (
-				DF191ACF1E745B82008964B1 /* ComicVine */,
 				827872ED1E4B859000E80204 /* Search */,
 				82A65E931E4A2E52008C4332 /* Volume Detail */,
 				82A65E7B1E4A20B0008C4332 /* Volume List */,
@@ -487,6 +487,7 @@
 				DF191AD01E745BA6008964B1 /* Models */,
 			);
 			name = ComicVine;
+			path = ComicList;
 			sourceTree = "<group>";
 		};
 		DF191AD01E745BA6008964B1 /* Models */ = {

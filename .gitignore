@@ -82,3 +82,7 @@ fastlane/test_output
 ## Other
 
 # End of https://www.gitignore.io/api/swift,xcode
+
+# Key of API ComicVine
+Api_ComicVine/
+

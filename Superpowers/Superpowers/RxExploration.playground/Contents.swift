@@ -66,3 +66,32 @@ let _ = error.subscribe(
     }, onCompleted: {
         print("not going to happen")
     })
+
+// ------------------------------
+// Subject: Observable que es un observer a la vez
+let subject = PublishSubject<String>()
+
+let _ = subject.subscribe { event in
+    print(event)
+}
+
+subject.onNext("pepito")
+subject.onNext("fulanito")
+subject.onCompleted()
+// Esta última no se pasa porque ya se ha completado
+subject.onNext("juanito")
+
+// Sustituye a KVO en RxSwift.
+// Además se aplica la conversión para que en caso de que se encuentre en espacio " " se añada como un nuevo elemento en un Array de String
+let query = Variable("")
+let _ = query.asObservable()
+    .map {
+        $0.components(separatedBy: " ")
+    }
+    .subscribe { event in
+    print(event)
+}
+
+query.value = "pepito"
+query.value = "pepito fulanito"
+query.value = "pepito fulanito hola"

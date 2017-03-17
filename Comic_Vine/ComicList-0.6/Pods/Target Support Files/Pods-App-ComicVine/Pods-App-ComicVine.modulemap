@@ -1,0 +1,6 @@
+framework module Pods_App_ComicVine {
+  umbrella header "Pods-App-ComicVine-umbrella.h"
+
+  export *
+  module * { export * }
+}
